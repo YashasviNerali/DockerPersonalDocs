@@ -1,0 +1,13 @@
+1.Install & configure docker - cretae a virtual box, create docker swarm - cent os,ubuntu on guest machine
+WHY FOR ALL? how,where? --
+2.Storage driver,selecting storage driver
+3.Running a container -docker run & all commands of it
+4.Upgrading a docker engine without impacting running containers000 docker exec
+5.Configure login drivers
+6.Setting up a docker swarm
+7.docker swarm backup&restore
+8.Namespace & c groups
+9.Docker engine
+
+
+

@@ -1,0 +1,63 @@
+*****Your company is ready to move forward with using Docker to run their applications. However, they have some complex container apps that can take advantage of the cluster management and orchestration features of Docker swarm. You have been asked to stand up a simple Docker swarm cluster to be used for some initial testing. A set of servers has already been provisioned for this purpose. The swarm cluster should meet the following criteria:
+Before installing the necessary Docker packages for the swarm cluster, we will configure the hosts file on all the Ubuntu nodes.
+
+Edit the /etc/hosts file across all three nodes via gedit or vim and do the following changes:
+
+<ip-address>  dockermanager
+<ip-address>  dockerworker1
+<ip-address>  dockerworker2
+
+
+*****One Swarm manager.
+
+The first machine acts as the manager, which executes management commands and authenticates workers to join the swarm, and the second is a worker.
+
+You can send commands to your VMs using docker-machine ssh. Instruct myvm1 to become a swarm manager with docker swarm init and look for output like this:
+
+$ docker-machine ssh myvm1 "docker swarm init --advertise-addr <myvmmanager ip>"
+Swarm initialized: current node <node ID> is now a manager.
+
+
+
+
+
+*****Two worker nodes.
+
+docker-machine create --driver virtualbox myvm1
+docker-machine create --driver virtualbox myvm2
+
+*****All nodes should use Docker CE version 5:18.09.5~3-0~ubuntu-bionic.
+
+Same as assignment1
+
+
+
+*****Both worker nodes should be joined to the cluster.
+
+To add a worker to this swarm, run the following command:
+
+  docker swarm join \
+  --token <token> \
+  <myvm1 ip>:<port>
+
+docker swarm join \
+  --token <token> \
+  <myvm2 ip>:<port>
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+Ports 2377 and 2376
+
+Always run docker swarm init and docker swarm join with port 2377 (the swarm management port), or no port at all and let it take the default.
+
+The machine IP addresses returned by docker-machine ls include port 2376, which is the Docker daemon port. Do not use this port or you may experience errors.
+
+
+
+*****Any non-root user should be able to run docker commands on all three servers.
+
+usermod -aG docker manager
+usermod -aG docker worker1
+usermod -aG docker worker2
+
+
+
+https://docs.docker.com/get-started/part4/
