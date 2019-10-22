@@ -1,0 +1,105 @@
+Date:- 15-10-2019
+Name: Satyendra Singh
+Exp: 7 Years
+Tech: Opensource(Java and JS to create Microservices -> 3 Years) and DevOps(2 Years) Tools
+Major Work: Train People in Org.
+Past Company: Avenues India Pvt. Ltd., TCS, Pragati Software, Laurus IT Solution, Capgemini.
+------------------------------------------------------------------------------------------------------------------
+Container
+	Why? -> Application Isolation
+		Why?
+			500MB   500MB
+			App1 	App2
+			--------------
+			Lib1.1  Lib1.2
+			-------------
+			OS1(4)|OS2(4)
+			------------
+			  VM Ware
+			------------
+			  Server1 (8GB)
+
+
+			App1 	 App2	
+		     --------- ---------
+		      Server1   Server2	
+
+	lxc-> Linux Container
+		Namespaces, Cgroups and Chroot
+
+	lxc does not provide any api to manage those isolated processes.
+
+	Docker created an API around LXC and tried controlling the processes thereby calling it containers.
+	
+		Instruction --build--> Image --run--> Containers
+		
+
+
+		AppC1 - (Ubuntu-JDK8-Tomcat7)
+		AppC2 - (Ubuntu-JDK7-Tomcat7)
+
+		AppC1	AppC2 
+		--------------
+		L3 (Tomcat 7)
+		--------------
+		L2(jdk8)L2(jdk7) 
+		--------------
+		L1(OS - ubuntu)
+		--------------
+		    Engine
+		--------------
+		  Server1
+
+
+
+
+Docker Images:-
+	Templates for creating Containers
+	Images are nothing but File Systems
+	Image Layers are Immutable(Read-Only)
+	Topmost Layer is a container, which is Read-Write thin Layer.
+
+Topics Covered today:-
+1. Introduction to images
+	https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/
+
+2. The Dockerfile
+	https://docs.docker.com/engine/reference/builder/
+
+3. More Dockerfile Directives
+	https://docs.docker.com/engine/reference/builder/
+
+4. Building efficient Images
+	https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+	https://docs.docker.com/develop/develop-images/multistage-build/
+
+5. Managing Images
+	https://docs.docker.com/engine/reference/commandline/image/	
+
+6. Flattening a Docker image to a Single Layer
+
+cd ~/
+mkdir alpine-hello
+cd alpine-hello
+vi Dockerfile
+
+Create a Dockerfile that will result in a multi-layered image:
+
+FROM alpine:3.9.3
+RUN echo "Hello, World!" > message.txt
+CMD cat message.txt
+
+
+Build the image and check how many layers it has:
+docker build -t nonflat .
+docker image history nonflat
+
+Run a container from the image and export its file system to an archive:
+docker run -d --name flat_container nonflat
+docker export flat_container > flat.tar
+
+Import the archive to a new image and check how many layers the new image has:
+cat flat.tar | docker import - flat:latest
+docker image history flat
+
+***********************End of Session 1*************************

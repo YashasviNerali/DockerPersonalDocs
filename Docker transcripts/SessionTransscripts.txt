@@ -1,0 +1,950 @@
+**********************iTransform Training********************************************************
+1. Self Study
+2. Online Live Sessions will be at intervals of 2-3 days.
+3. Assignments
+4. Assessment (MCQs, Viva) 
+	Scores -> Put people in Order of understanding and Expertise in tools
+		Assignments that you do
+		MCQ scores
+		Viva Scores
+
+***********************DevOps Concepts, Practices and Tools**********************************
+Agenda:-
+	1. What is DevOps and Why do we need it?
+	2. History of DevOps
+	3. DevOps vs Traditional Silos
+	4. Phases of DevOps
+		a) Build Automation [Git, Maven, SonarQube and Jenkins]
+		b) Continous Integration [Jenkins]
+		c) Continous Delivery and Deployment [Jenkins]
+		d) Infrastructure as a Code (IaaC) [Docker and Terraform]
+		e) Configuration Management Tools (CM Tools) [Chef]
+		f) Orchestration [Kubernetes]
+		g) Monitoring [ELK]
+	5. Microservices
+	6. DevOps Tools (needed in all the phases of DevOps)
+	7. DevOps on Cloud
+		
+----------------------------------------------------------------------------------------------
+1. What is DevOps and Why do we need it?
+	DevOps = Dev(Development) + Ops(Operations)
+	Different People define devops in a variety of ways.
+	WikiPedia:-
+		software development practices
+		to shorten the systems-development life cycle
+		delivering features, fixes, and updates frequently 
+
+DevOps:-
+	DevOps is Culture of Collaboration between Dev and Ops people
+	This culture has given rise to set of Practices
+	DevOps is a grassroots movement, by Practioners, for Practioners.
+
+DevOps Is NOT:-
+	It is NOT TOOLS, but tools are essential to success in DevOps
+	It is NOT a STANDARD
+	It is also NOT a PRODUCT
+	It is also NOT a JOB TITLE
+
+What we will Cover:-
+	1. DevOps Culture -> culture of collaboration between developer and Operations
+	2. DevOps Practices -> Supports the goals of DevOps culture
+	3. DevOps Tools -> helps us to implement DevOps practices
+	4. DevOps and the Cloud -> relationship between cloud and DevOPs
+
+----------------------------------------------------------------------------------------------
+A Brief History of DevOps
+
+Agile Software Development
+	DevOps grew out of the Agile Soft Dev movement
+	Agile seeks to develop software in SMALL, FREQUENT cycles in order to deliver functionalities to customers QUICKLY and RESPOND to CHANGING business goals.
+
+So, Why DevOps?
+	Problem with Agile:-
+		In agile method there was a problem with the time taken to build deploy test and fix again if any issue is identified in production and then deploy in production again.
+	
+	Why the Problem:-
+		1. Developer
+		2. QA
+		3. IT Operations
+
+	In Agile:-
+		Developer = Developer + QA
+		IT Operations
+
+	Role:-
+		Developer -> "SPEED" of Development
+		IT Operations -> "STABILITY" of Product
+	
+	"It works on my Machine"
+
+Agile failed to recognize this problem.
+
+
+DevOps:-
+	Agile + few Corrections = DevOps
+	Developer -> "SPEED" and "STABILITY"
+	Operations -> "STABILITY" and "SPEED"
+
+	DevOps -> Working in Collaboration with Dev and Ops -> "SPEED" and "STABILITY"
+
+History and Timeline of DevOps:-
+
+2007: Agile S/D was gaining popularity, But it was also suffering from a growing divide between Developments and Operations.
+
+2007: Patrick Debois. an engineer with exp in Dev and Ops and was doing testing on a project and became frustrated by the huge divide between dev and ops.
+
+2008: Patrick met Andrew in Agile Conference in Toronto and having discussion on seeking the solution to the problem between dev and ops.
+
+June 2009: John Allspaw and Paul were giving talk on "10+  Deploys per Day: Dev and Ops Cooperation at Flickr" and after this, the discussion spread among multiple people as catch attention to many devs and ops team which led to discussion on twitter.
+
+Dec 2009:- Patrick hosted the first "DevOps Days" talk in Belgium and the conversation on twitter started with #DevOps trending.
+
+From here, the DevOps grew as a grassroot movement all over the world.
+
+Today:-
+	The DevOps movement has not stopped growing since 2009 and it is non longer a small, niche movement.
+
+	Become mainstream
+	Spawned a large variety of tools
+	completely changed the development lifecycle in the IT industry forever.
+
+----------------------------------------------------------------------------------------------
+DevOps Culture:-
+1. Collaboration between Devs and Ops
+2. Working together for single and same goal (Speed and Stability)
+
+Goals of DevOps Culture:-
+1. Working together
+2. Sharing same goals
+3. Faster Time-to-Market
+4. Few Production Failures
+5. Immediate recovery from failures
+
+What went right when follow devops culture:-
+1. Build a robust way of changing code quickly and reliably
+2. Automation led to consistency
+3. Having a good monitoring tools ensured problems could be fixed even before  users noticed them.
+4. Happy Teams
+5. Happy Customers
+
+################################## DevOps Phases #########################################
+
+a) Build Automation
+	Automation of the process of preparing code for deployment to live env.
+	Taking the steps (compile, code quality checks, code coverage, unit tests, etc..) and doing them in a consistent and automated way using a script or tool.
+	Why?
+		Fast
+		Consistent
+		Repeatable
+		Portable
+		Reliable
+
+	Tools:- maven, ant, grunt, npm, etc...
+
+b) Continous Integration
+	The practice of frequently merging code changes done by developers.
+	Merging code all at 1 time manually could led to lot of efforts and is error prone, so, automating the Integration process Continously is helpful.
+
+	Why?
+		Early Detection of Bugs
+		Eliminating the scrambled code, no need to do abig merge at the end, as doing it continously.
+		Frequent releases
+		Continously testing
+		Forces good coding practice
+
+	Tools:- Jenkins, Bamboo, TravisCI, etc...
+	
+c) Continous Delivery and Deployment
+	Continous Delivery: The practrice of continously maintaining code in a deployable state.
+	Continous Deployment: The practice of frequently deploying small code changes to production.
+
+	Why?
+		1. Faster Time-to-Market
+		2. Fewer Problems caused by the deployment process
+		3. Lower risk, frequent deployment of fewer changes.
+		4. Reliable Rollbacks
+		5. Fearless deployments
+	Tools:
+		Jenkins, Bamboo, TravisCI, etc...
+
+d) Infrastructure as a Code (IaaC)
+	Managing and Provisioning infrastructure through code and automation.
+	With IaaC, I can:-
+		1. Create and Run Servers
+		2. Configure App Environment
+		3. Run and Deploy containers
+		4. Any other infrstaructure...
+	Why:
+		Consistent Env
+		Reusability
+		Scalability
+		Self Documenting
+		Simplify Complexity
+
+	Tools: Docker, Terraform, etc...
+		
+e) Configuration Management
+	Practice of Maintaining and Changing the state of pieces of infrastructure in a consistent, maintainable and Stable way.
+
+	CM is the best buddy of IaaC.
+
+	CM is about managing your configuration somewhere outside of the servers themselves.
+	
+	Why:
+		Saves Time
+		Insight, know all the pieces of large infrastructure
+		Maintainability, easier to change in stable way.
+		Less Configuration drift, easier to keep standard conf across multitude of hosts.
+	Tools:
+		Chef, puppet, ansible, saltstack
+
+
+f) Orchestration
+	Maintaining the Desired State
+	Automation that supports processes and workflows, such as provisioning resources.
+	It is not about managing the infra, but about making them communicate with each other and keeping them healthy, Up and running continously.
+
+	Why:
+		Scalability
+		Stability
+		Save Time
+		
+	Tools: Kubernetes, Openshift, PKS, etc...
+
+g) Monitoring
+	The collection and presentation of data about the performance and stability of services and infrastructure.
+	
+	Eg:-
+		Usage of Memory
+		CPU
+		Disk I/O
+		Application Logs
+		Network traffic
+		etc...
+	It will give
+		Realtime notifications about the health of services and infra
+		Postmortem Analysis
+		
+	Why:
+		Fast Recovery
+		Better root cause analysis
+		Visibility across teams
+		Automated response
+
+Homework:-
+5. Microservices
+6. DevOps Tools (needed in all the phases of DevOps)
+7. DevOps on Cloud
+8. Basic Git
+		
+
+
+Next will be on Advanced Git, most probably on 22nd Aug, 2019. Will also have QandAs on DevOps Concepts, Practice and Tools
+
+
+
+
+ 
+##########################################################################################
+******** Git
+Concepts and Theory
+	Version Controlling
+		Not about Storing files
+		TRACKING CHANGES in the file.
+		
+	Need for Git and a Bit of History
+		Refer "Need for Git and a Bit of History.txt"
+
+	The Repository
+		It is the place where the VCS keeps track of all the changes we make.
+		
+		Revision = Current State of Code + When each changes was made + Who made it + A text log message + Why the changes were made.
+		
+	What you should store
+		Everything that you need to work on your project
+		
+		1. Source Code (.java, .js, .cs, .html, .jsp etc...)
+		2. Build Files (build.xml, pom.xml, package.json, .yml, .xaml, etc...)
+		3. Unit Tests
+		4. Configuration Files
+		5. Documentations
+		6. Images and Icons
+
+		How Determine, what to store?
+			Ask yourself a question, "If I didn't have X. Could I do my work on this project?"
+
+		Avoid:-
+			Tools (junit library, maven, ant, npm, VS, .....)
+			
+	Working Trees
+		It is a current view into the repository
+		Contains all the files from your project
+		.git directory inside your project's directory
+		
+		How do we get this working tree?
+			1. Starting your own project and the telling git to initialize a repository for this new project.
+			2. You can clone an existing repository.
+		
+	Manipulating Files and Staying in Sync
+		1. Create of edit the file
+		2. Add the changes to the repo
+		3. Commit the changes with some message
+		4. Push the changes in remote repository		
+		
+		This whole thing creates a new revision in git with log message, user, etc..
+		
+		Retrieving changes from a Git repository:-
+			1. You fetch them, which creates a copy of remote repo's changes for you.
+			2. You merge those changes into your local repository
+
+			OR
+			1. Pull = fetch + merge
+
+	Tracking Projects, Directories and Files
+		Git does not track the whole file But, It keep the track of the content of the file.
+		Instead of tracking the file, It tracks the variables, functions, words, lines, etc...
+		Advantages:-
+			It reduces the amouont of storage space needed.
+			It becomes feasible and fast to do things, detecting functions or classes moving between the two files or even determining where copied code came from.
+
+	Tracking Milestones with Tags
+		Tags give us the tool to keep track of what state our repo was in when we passed some milestones
+		milestones -> releases.
+		
+		Tags helps us to keep track of the history of your repository by assigning an easy to remember name to a certain revision.
+
+	Creating Alternate Histories with Branches
+		Refer "Alternate History.png"
+
+	Merging
+		Refer "Alternate History.png"
+
+	Locking Options
+		Optimistic Locking -> Allows multiple developer to work on the same code
+		
+			
+
+Practical Hands-on
+	Create Repository
+		Two ways:-
+		1. git init
+		2. git clone
+
+	Make changes
+		1. git add
+		2. git commit -m "<your meaningful message>"
+
+		Adding a remote repo to local
+		1. git remote add origin <remote repo url>
+		2. git push -u origin master
+
+		Logging:-
+			git log --> Gives you recent changes in the repo
+			git log -<n>  --> 	Gives last n commits	
+
+	Create Project and strat working on it
+	Using and Understanding Branches
+		1. git branch --> List all the availble branches, current branch has '*'
+		
+		Creating a branch
+			
+
+	Handling Releases
+	Cloning a Remote Repository
+	Adding, Commiting files
+	Seeing what has changed and who changed it
+	Managing the files
+In Depth - Advanced Git
+	Branches -> Creating, Merging changes, Handling Conflicts, Deleting and Renaming.
+	Git's History -> Logs, Revision changes, Differences between versions, Who changed what, Undoing changes, Rewriting History
+	Remote Repository
+	
+
+-------------------------------------------------------------------------------------------
+-- Pipeline as a Code
+	1. Declarative (Jenkinsfile)
+		pipeline {
+			agent any
+
+			stages {
+				stage ('Build') {
+					sh 'mvn clean package'
+				}
+			}
+		}
+
+
+
+	2. Using Script (Jenkinsfile.groovy)
+
+
+
+---------------------------------------------------------------------------------------------
+Container:-
+	
+
+Before Start:-
+	Application/Software is what we are working for to provide solution to our client's problem.
+	Application run businessess.
+	If Application break, businessess break.
+	An Application is a baby of a IT employees(Developer,Engineer, Manager, Architect,etc)
+	Most app run on servers
+
+	In the Past, 1 Application per Server.
+	Everytime the business needed a new Application, It would go and buy a new server.
+	IT makes the choice to buy servers by looking at the Application.
+	Fastest servers are bought as they don't know most of the time what is the load of app.
+	
+	HIGH COST!
+		A tragic waste of company capital and resources.
+	
+	Later, They came up with Virtualization.
+		Refer "virtualization.png"
+
+	Virtual Machines was introduced by VMWare to run multiple business applications on a single server.
+	IT no longer needed brand new oversized machines/servers every time the business asked for a new application.
+
+	Lot of money started saving from this approach.
+
+
+BUT!!!
+	Virtualization was not perfect!
+	
+	1 OS per VM is a flaw!
+		Every OS needs:
+			RAM, CPU, Storage.
+			Patch Updates
+			License
+
+		Waste of op-ex and cap-ex.
+
+	It also has problem:-
+		Slow to boot
+		Poratbility isn't great
+		migrating and moving VM between hypervisors and clod platforms is harder than it needs to be.
+
+
+Container to the rescue!
+
+Parallelly their was an OS which was having Containers from the beginning. Unix/Linux!
+
+Why we came here till virtualization? for "APPLICATION ISOLATION".
+
+------------------------------------------------------------------------------------------------
+How Unix/Linux were doing Isolation job?
+	unix is multi-user OS.
+	How it manages the multiple users at the same time?
+		cgroups
+		namespaces
+		chroot
+	The above 3 in unix/linux helped OS to allocate sapearte and Isolated resources to each users.
+
+	
+	All containers use cgroups, namespaces and chroot for containers which are called as LXC (Linux Conatiner)
+	LXC is a part of unix/linux OS from beginning
+	LXC is an actual container.
+
+	LXC:-
+		Creates and manages the lifecycle of Containers.
+		
+	Problem of LXC:-
+		User/Admin/Dev can't have any api/tool to control LXC in creating and managing the conatiners.
+
+		
+	So, Docker Inc., a company modified LXCs and created an API/client libraries to create and manage Containers and that is called as "Docker" now.
+
+
+Docker:-
+	It is an upgraded/modified version of LXCs, which allows user to manage containers.
+	Docker works well on Linux OS as they are using cgroups, namespaces and chroots from it.
+	Windows on the other hand does not have cgroups, namespaces and chroot, hence docker for windows is nothing bu virtualization of linux on windows and using that linux to run docker.
+-----------------------------------------------------------------------------------------------
+
+Container:-
+	refer "container.png"
+
+------------------------------------------------------------------------------------------------
+Commands:-
+	Check if docker is installed and which version.
+		doocker -v
+
+	check the 2 componenets and its version
+		docker version
+Docker:-
+	It is an 
+		upgraded/modified version of LXCs --> Docker Engine
+		Has API to manage containers.  --> Docker Client
+
+Images:-
+	Similar to Source Code
+	2 Types of Images:-
+		1. Ready images(official + unofficial images), created by somebody and published in registry(docker hub)
+		2. Custom images, created by developers for their customize need.
+
+Conatiners:-
+	Source Code in execution.
+	It is a "Process".
+
+
+
+		
+
+
+
+
+1. run
+	start a new container
+	can run a new process using command as it creates and run a new container
+2. start
+	start an existing stopped container
+	But, cannot run any process using command
+3. exec
+	run a process with command in a currently running container
+	can run process using command if the container is running
+
+
+----------------------------------------------------------------------------------------
+Assignment:-
+
+create a mysql database with table and some data in it.
+	1. get the mysql image
+	2. run the container from the image
+	3. go inside the container
+	4. create a table and insert some data
+	5. exit from container.
+
+NOTE:- After Exit from container, container should not stop
+PLEASE use "--help" instead of google.
+
+------------------------------------------------------------------------------------------------
+The Docker Engine (a.k.a Docker, Docker Platform)
+	Core Software that runs and manages the containers
+	Docker Engine is modular in with many swappable components
+	It is based on Open-Standards outlined by Open Container Initiative (OCI)
+				Docker Engine 0.9 onwards
+			|-----------------------|
+Docker Client		|			|
+>_ 		------->|------>Daemon		|
+			|	  |		|
+			|	containerd	|
+			|	  |		|
+			|	runc		|
+			|			|
+			-------------------------
+		
+Refer "Docker Architecture Old and new.png"
+-------------------------------------------------------------------------------------------------
+Java:-
+	Source Code --javac---> Class File ---java----> Running Application
+	
+Docker:-
+	Source Code ----build---> Image ---run---> Container
+
+Docker Image
+	Template of a Container
+	Similar to classes in OOP
+	It is a stopped container	
+
+	We all start working with image by pulling it from registry (Docker Hub)
+		docker pull centos:7
+
+	The pull operation downloads the image into our local docker host machine, where we can use it to start containers.
+
+
+	Images are made up of multiple "layers" that are stacked on top of each other and represents single image/object.
+	
+	Inside the Image:-
+		Is a "cut-down Operating System"
+		Files and Dependencies required to run an application in the container.
+
+		Example:-
+			mysql image:-
+				Some OS (ubuntu, centos, rhel, etc...)
+				mysql files and dependencies
+
+
+
+	Images are usually small:-
+		Image = OS + all files and dependencies
+
+		Create an Image of a Java web App
+			1) OS
+			2) JRE/JDK
+			3) Tomcat
+			4) Jar dependencies
+			5) Application binary files(.class files or application jar file)
+
+		I want tomcat image:-
+			1) OS
+			2) JDK/JRE
+			3) Tomcat
+
+	Official and Unofficial Images:-
+		Official Images:-
+			docker image pull mongo
+
+		Unofficial IMages:-
+			docker image pull <user_repository_name>:<tag>
+
+			docker image pull satyendrasingh/webapp:latest
+
+	Filtering the output of "docker image ls"
+		docker image ls --filter dangling=true
+
+		dangling images are an image that is:- 
+			no longer tagged
+			appears in listings as <none>:<none>
+
+			alpine:<none>
+			alpine:3.4
+		Other filters:-
+			before -> Requires an image name or ID as argument, and returns all images created before it.
+			since -> 
+			label
+			
+-------------------------------------------------------------------------------------------
+Containers:-
+	It is a Process
+	Instance of an Image
+	Running Image is a Container
+	
+	docker container run <image-name/id> <command> <argument>
+	docker container stop <container_name/id>
+	docker container start <container_name/id>
+	docker container rm <container_name/id>
+	docker container exec -it <container_name/id> <command> <argument>
+
+	
+	Container Lifecycle:-
+		Refer "Docket actions.png"
+	
+
+	Self healing Container
+
+--------------------------------------------------------------------------------------------
+Building Docker Images
+	Dockerfile(instructions) ---docker build---> Docker Image ---- docker run --> Container
+
+	Why a Developer is going to create a Docker image?
+		Make container out of his application.
+		To run his application inside the container - Containerizing the Application
+			Application Isolation
+			
+	Steps to create containerized Application:-
+		1. Create a file - Dockerfile
+			however, file can be anything
+			extension is not required
+		2. Write docker instructions in Dockerfile
+			FROM -> This must be the first instruction in Dockerfile, assigns a base image to the image that the developer is trying to ceate.
+				E.g.:- FROM ubuntu:18.04
+			MAINTAINER -> optional, has names of image maintainer, contact info, Author
+			RUN -> used to execute commands during the build process
+			ADD -> Copies files from host machine or remote location through URL to new docker image.
+			COPY -> copies files from host only into new docker image.
+			ENV -> Define environment variables.
+			CMD -> Used to execute commands when we build a new container from the docker image.
+			ENTRYPOINT -> Defines the default command to run when the "docker run"	command is fired on new image. Ideally used to run the java/nodejs/.net application in the running conatiner. This command also becomes the daemon process for the container,  which means once the command completes its execution the container will stop.
+			
+			WORKDIR -> This is directory for "CMD" command to be executed
+			USER -> Set the user or userid(UID) for the container created with the image
+			VOLUME -> Allows Access to directory in the host machine.
+
+		3. Build the image
+			docker image build -t imagename:version -f dockerfilename
+
+		4. Run the image
+			docker image run ......
+
+		5. Publish the image in Docker Hub
+			docker tag imagename repositoryname/imagename:version
+			docker login
+			docker push repositoryname/imagename:version
+
+
+			
+Assignment:-
+1. What is teh difference between COPY and ADD?
+2. What is the difference between RUN and CMD?
+3. What is the difference between ENTRYPOINT and CMD?
+
+Docker Volumes
+	Their are 2 ways to manage data in Docker:-
+	1. Data Volumes
+		A special directory in the container
+		Initialized when the container is created
+		It is not deleted when the container is stopped.
+		Even if all the containers accessing this stops, it still remain active.
+		Independently updated
+		Shared among many containers
+		These DVs can also be in read-only mode
+
+Assignments:-
+1. How do we assign the existing volume(volume whose container is now dead) to new container?
+2. In Which scenario, will you assign an existing volume with some data to a new conatiner?
+
+Assigning Host directory to the container data volume:-
+	
+
+		
+	2. Data Volume Containers	
+
+
+
+Docker Networking
+	-p 8080:8080
+
+	we will see this more when we will start with Kubernetes
+
+-----------------------------------------------------------------------------------------------
+Publishing Docker images on DockerHub using Jenkins
+Kubernetes
+	minikube
+
+------------------------------------------------------------------------------------------------
+Agenda:-
+
+Core Concepts
+	Kubernetes API Primitives
+		Kubernetes API Primitives are called as "Kubernetes Object" as per the official Documentation
+		Kubernetes cluster is made up of objects, communicating with each other.
+		Kubernetes Objects are the object that defines the state of the cluster.
+		Every Kubernetes Objects has a Type
+		Following are few Kubernetes Types:-
+			1. Pod
+			2. Node
+			3. Service
+			4. Namespace
+			etc.....
+		How do I get all the object types in kubernetes:-
+			kubectl api-resources -o name --> list all the object type's name.
+
+		Kubernetes Objects:-
+		Kubernetes Objects are the object that defines the state of the cluster.
+		State of the cluster means?
+			A Pod is running which container?
+			Pod has how many containers?
+			Node has how many pods?
+			How many instances of the Pods/Nodes/Services/etc are running?
+			What is the health of Pod/Node/Service/etc
+			and so on....
+		Objects are created uing yaml file.
+		Developer writes yaml file with necessary configurations/instructions and gives it to the Kubernetes cluster(master node) to create Object out of this yaml file
+
+		How do we create object out these types?
+			Developer writes yaml file with necessary configurations/instructions and gives it to the Kubernetes cluster(master node) to create Object out of this yaml file
+		
+			Developer uses Kubernetes API(Commands) and yaml as an argument to the command to create/configure or manage the object.
+
+		Every Object has 2 important things:-
+			1. Spec  -> Written by developer in yaml file
+				Defines the desired state of the cluster.
+
+			2. Status -> Given by kubernetes cluster
+				Defines the current state of the cluster.
+			
+		Creating Pods
+
+first-pod.yml:-
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-first-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: myappcontainer
+      image: busybox
+      command: ['sh','-c','echo Hello Kubernetes! && sleep 3600']
+
+
+kubectl create -f first-pod.yml
+
+
+	Namespaces
+		
+	Basic Container Configuration	
+		containerPort
+		namespace
+		
+------------------------------------------------------------------------------------------
+Agenda:-
+ConfigMaps
+	A ConfigMap is Kubernetes Object
+	It stores data/configuration in a Key-Value paur format
+	This configuration data can be used to configure app/soft running inside the container.
+	
+	Developer creates a ConfigMap Object with configuration data.
+	Then, This ConfigMap object is linked with Pod using "spec".
+	
+	Let us create ConfigMap object
+	
+	my-config-map-data.yml
+	
+	apiVersion: v1
+	kind: ConfigMap
+	metadata:
+	  name: my-config-map
+	data:
+	  myKey: myValue
+	  myAnotherKey: myAnotherValue
+	
+Security Contexts
+useradd -u 2000 container-user-0
+groupadd -g 3000 container-group-0
+useradd -u 2001 container-user-1
+groupadd -g 3001 container-group-1
+mkdir -p /etc/message
+echo "Hello, World!" > /etc/message/message.txt
+chown 2000:3000 /etc/message/message.txt
+chmod 640 /etc/message/message.txt
+
+Resource Requirements
+	Assigning the resources to the running pod from kubernetes nodes.
+	Resources can be assigned  in 2 ways:-
+	1. Resource Request:- how much and what resources are required on nodes to run container
+	2. Resource Limit:- max resources a container can utilize for itself from the node
+	
+64Mi = 64Mebibites
+250m = 0.25 CPU cores
+1000m= 1 CPU cores
+
+
+
+Secrets
+
+
+ServiceAccounts
+
+kubectl create serviceaccount my-serviceaccount
+ 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-first-pod
+  labels:
+    app: myapp
+spec:
+  serviceAccountName: my-serviceaccount
+  containers:
+    - name: myappcontainer
+      image: busybox
+      command: ['sh','-c','echo Hello Kubernetes! && sleep 3600']
+
+
+Multi-Container Pod
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-first-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: myappcontainer1
+      image: busybox
+      command: ['sh','-c','echo Hello Kubernetes! && sleep 3600']
+    - name: myappcontainer2
+      image: nginx
+      ports:
+      - containerPort: 80
+
+both containers can share the data with the help of volume mount.
+
+
+Liveness and Readiness of Pod
+	Liveness: If the container is running properly
+	Readiness: If the container is ready to accept request
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-first-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: myappcontainer1
+      image: busybox
+      command: ['sh','-c','echo Hello Kubernetes! && sleep 3600']
+      livenessProbe:
+        exec:
+          command:
+          - echo
+          - testing
+        initialDelaySeconds: 5
+        periodSeconds: 5
+
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-first-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: myappcontainer1
+      image: nginx
+      ports:
+      - containerPort: 80
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 80
+        initialDelaySeconds: 5
+        periodSeconds: 5
+
+Container Logging
+	kubectl logs podname
+	kubectl logs podname > filename.log
+	kubectl logs podname -c containername
+	kubectl logs podname -c containername > filename.log
+	
+Monitoring Container/Applications
+	kubectl top
+	
+Debugging
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
